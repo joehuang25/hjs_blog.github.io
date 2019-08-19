@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[提升工作效率指令]]></title>
+    <url>%2F2019%2F08%2F19%2F%E6%8F%90%E5%8D%87%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87%E6%8C%87%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[目的总结个人常用的,win10快捷键 和 VSCode的快捷键。动鼠标还是太麻烦也不装逼,哈哈哈! 总结win10 win + L : 锁屏 win + D : 显示桌面 win + X + U + U: 关机 win + R : 打开运行对话框 win + E : 打开我的电脑文件夹 win + shift + S : 截图(不能标记) win + Q : 快速搜索(多利用此功能,桌面一个回收站就够了) win + W : 打开window INK工作区, 里面包含草图,便签和截图功能 Ctrl + Alt + Del : 电脑卡死,用这个打开任务管理器 Alt + Tab : 切换到下个窗口,+ shift切换到上一个 chrome浏览器 F2 : 打开调试工具 F11 : 全屏 ctrl + shift + delete : 清楚缓存 ctrl + shift + R : 强制刷新 Ctrl + N : 打开新窗口 Ctrl + T : 打开新标签页 Ctrl + Tab : 切换到下一个标签页(+shift 到上一个) VSCode Ctrl + F : 搜索 Ctrl + F : 搜索 Ctrl + H : 替換 Ctrl + P : 搜索文件 Ctrl + shift + F : 打开全局搜索 Alt + 上下方向键 : 上下移动选中的代码 Alt + B : 浏览器打开html Ctrl + [/] : 左右移动选中的代码 Ctrl + shift + N : 打开新的窗口’ Ctrl + shift + H : 插件Relative Path快捷鍵 Home / End : 光标跳到行首或行尾(+shift 选中到行首行尾)(+Ctrl 光标移动到文档的头和尾)]]></content>
+      <tags>
+        <tag>技巧</tag>
+      </tags>
+  </entry>
+</search>
