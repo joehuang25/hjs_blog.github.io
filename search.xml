@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vant的tab组件active状态不对应]]></title>
+    <url>%2F2019%2F08%2F20%2Fvant%E7%9A%84tab%E7%BB%84%E4%BB%B6active%E7%8A%B6%E6%80%81%E4%B8%8D%E5%AF%B9%E5%BA%94%2F</url>
+    <content type="text"><![CDATA[问题最近做的H5项目用到了Vant, 使用用过程中发现Tab和Tabbar组件的Active状态在页面刷新的时候会回到第一个。从首页或别的地方跳转到Tab所在页面,active也是显示第一个。 思路 通过查看Vant文档发现可以通过v-model切换选中的标签 v-model默认绑定选中标签的索引值，通过修改v-model即可切换选中的标签 所以在进入该页面的时候改变v-model绑定的值就可以让active正确显示 将tab页面和路由绑定起来 解决方案直接贴代码了step1 1234567891011&lt;Tabs v-model=&quot;activeTab&quot; background=&quot;#00bbcc&quot; line-width=&quot;60&quot; line-height=&quot;2&quot;&gt; &lt;Tab&gt; &lt;router-link slot=&quot;title&quot; to=&quot;/message&quot; replace &gt;收件箱&lt;/router-link&gt; &lt;/Tab&gt; &lt;Tab&gt; &lt;router-link slot=&quot;title&quot; to=&quot;/message/outbox&quot; replace&gt;发件箱&lt;/router-link&gt; &lt;/Tab&gt; &lt;Tab&gt; &lt;router-link slot=&quot;title&quot; to=&quot;/message/writeEmail&quot; replace&gt;写信&lt;/router-link&gt; &lt;/Tab&gt;&lt;/Tabs&gt; step2 1234567891011beforeRouteEnter (to, from, next) &#123; next(vm =&gt; &#123; if (to.path.indexOf(&apos;outbox&apos;) !== -1) &#123; vm.activeTab = 1 &#125; else if (to.path.indexOf(&apos;writeEmail&apos;) !== -1) &#123; vm.activeTab = 2 &#125; else &#123; vm.activeTab = 0 &#125; &#125;) &#125;]]></content>
+      <tags>
+        <tag>vant</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[VScode常用插件]]></title>
     <url>%2F2019%2F08%2F20%2FVScode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%2F</url>
     <content type="text"><![CDATA[目的总结下VSCode自己常用的插件和主题 总结Chinese – 中文插件vscode-icons – 文件图标one dark pro – 主题 px to rem – px转remRelative Path – 相对路径Live Server – 打开html文档Auto Close Tag – 自动添加闭合标签Auto Rename Tag – 修改标签，自动修改一对Add jsdoc comments – 自动添加js注解Import Cost – 自动显示引入包的大小]]></content>

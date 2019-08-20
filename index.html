@@ -274,6 +274,142 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/vant的tab组件active状态不对应/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/joe.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="joe的角落">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/20/vant的tab组件active状态不对应/" itemprop="url">vant的tab组件active状态不对应</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-20T09:48:14+08:00">
+                2019-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>最近做的H5项目用到了Vant, 使用用过程中发现Tab和Tabbar组件的Active状态在页面刷新的时候会回到第一个。从首页或别的地方跳转到Tab所在页面,active也是显示第一个。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>通过查看Vant文档发现可以通过v-model切换选中的标签<blockquote>
+<p>v-model默认绑定选中标签的索引值，通过修改v-model即可切换选中的标签</p>
+</blockquote>
+</li>
+<li>所以在进入该页面的时候改变v-model绑定的值就可以让active正确显示<blockquote>
+<p>将tab页面和路由绑定起来</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>直接贴代码了<br>step1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;Tabs v-model=&quot;activeTab&quot; background=&quot;#00bbcc&quot; line-width=&quot;60&quot; line-height=&quot;2&quot;&gt;</span><br><span class="line">  &lt;Tab&gt;</span><br><span class="line">    &lt;router-link slot=&quot;title&quot; to=&quot;/message&quot; replace &gt;收件箱&lt;/router-link&gt;</span><br><span class="line">  &lt;/Tab&gt;</span><br><span class="line">  &lt;Tab&gt;</span><br><span class="line">    &lt;router-link slot=&quot;title&quot; to=&quot;/message/outbox&quot; replace&gt;发件箱&lt;/router-link&gt;</span><br><span class="line">  &lt;/Tab&gt;</span><br><span class="line">  &lt;Tab&gt;</span><br><span class="line">    &lt;router-link slot=&quot;title&quot; to=&quot;/message/writeEmail&quot; replace&gt;写信&lt;/router-link&gt;</span><br><span class="line">  &lt;/Tab&gt;</span><br><span class="line">&lt;/Tabs&gt;</span><br></pre></td></tr></table></figure>
+
+<p>step2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteEnter (to, from, next) &#123;</span><br><span class="line">    next(vm =&gt; &#123;</span><br><span class="line">      if (to.path.indexOf(&apos;outbox&apos;) !== -1) &#123;</span><br><span class="line">        vm.activeTab = 1</span><br><span class="line">      &#125; else if (to.path.indexOf(&apos;writeEmail&apos;) !== -1) &#123;</span><br><span class="line">        vm.activeTab = 2</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        vm.activeTab = 0</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/VScode常用插件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -554,7 +690,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -567,7 +703,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
